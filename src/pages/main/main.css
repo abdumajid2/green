@@ -1,0 +1,10 @@
+.dd {
+    background-image: url(./images/ss.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    padding: 20px;
+    display: flex;
+
+}
