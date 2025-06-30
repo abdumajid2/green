@@ -4,29 +4,22 @@ import log from '../../assets/ssd.png'
 import foot from '../../assets/foot.png'
 
 const Layout = () => {
-    const [isVisible, setIsVisible] = useState(true); // Состояние видимости навбара
-  const [lastScrollY, setLastScrollY] = useState(0); // Последняя позиция скролла
+    const [isVisible, setIsVisible] = useState(true); 
+  const [lastScrollY, setLastScrollY] = useState(0); 
 
-  // Функция для обработки события скролла
   const handleScroll = () => {
-    // Если пользователь скроллит вниз и позиция скролла больше определенного порога (например, 100px)
-    // и навбар в данный момент виден, то скрываем его
     if (window.scrollY > lastScrollY && window.scrollY > 100 && isVisible) {
       setIsVisible(false);
     } 
-    // Если пользователь скроллит вверх (или находится в верхней части страницы)
-    // и навбар скрыт, то показываем его
-    else if (window.scrollY < lastScrollY || window.scrollY < 10) { // <10 для показа навбара в самом верху
+
+    else if (window.scrollY < lastScrollY || window.scrollY < 10) {
       setIsVisible(true);
     }
-    setLastScrollY(window.scrollY); // Обновляем последнюю позицию скролла
+    setLastScrollY(window.scrollY); 
   };
   useEffect(() => {
-    // Добавляем слушатель события скролла при монтировании компонента
     window.addEventListener('scroll', handleScroll);
 
-    // Удаляем слушатель события скролла при размонтировании компонента
-    // Это важно для предотвращения утечек памяти
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };

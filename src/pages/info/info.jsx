@@ -30,9 +30,8 @@ const Info = () => {
     }
   }, [id]);
 
-  // Функции для изменения количества
   const handleDecrement = () => {
-    setQuantity(prevQuantity => Math.max(1, prevQuantity - 1)); // Не менее 1
+    setQuantity(prevQuantity => Math.max(1, prevQuantity - 1));
   };
 
   const handleIncrement = () => {
@@ -73,7 +72,7 @@ const Info = () => {
   return (
     <div className="min-h-screen bg-gray-100 p-8 flex items-center justify-center">
       <div className="bg-white rounded-lg shadow-xl overflow-hidden max-w-4xl w-full flex flex-col md:flex-row">
-        {/* Секция изображения продукта */}
+  
         <div className="md:w-1/2 p-6 flex items-center justify-center bg-gray-50">
           <img
             src={product.image}
@@ -82,11 +81,11 @@ const Info = () => {
           />
         </div>
 
-        {/* Секция деталей продукта */}
+     
         <div className="md:w-1/2 p-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-4">{product.title}</h1>
 
-          {/* Отображение цены и скидки, как на скриншоте */}
+      
           <div className="flex items-baseline space-x-3 mb-6">
             <span className="text-4xl font-extrabold text-gray-900">${product.currentPrice}</span>
             {product.originalPrice && (
@@ -99,7 +98,7 @@ const Info = () => {
             )}
           </div>
 
-          {/* Секция выбора количества и кнопки "Добавить в корзину" */}
+          
           <div className="flex items-center space-x-4 mb-6">
             <div className="flex items-center border border-gray-300 rounded-md">
               <button
@@ -126,16 +125,15 @@ const Info = () => {
             </button>
           </div>
 
-          {/* Секция описания */}
+          
           <div className="mb-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-2">Description</h2>
             {product.description && (
-              // Используем dangerouslySetInnerHTML, если описание содержит HTML (например, <br />)
-              // Или просто product.description, если это обычный текст
+              
               <p className="text-gray-700 text-base leading-relaxed whitespace-pre-wrap">
                 {product.description}
-                {/* Для "Read more" можно добавить ссылку, если описание слишком длинное */}
-                {product.description.length > 200 && ( // Пример: если описание длиннее 200 символов
+         
+                {product.description.length > 200 && ( 
                   <a href="#" className="text-blue-600 hover:underline ml-1">Read more</a>
                 )}
               </p>
